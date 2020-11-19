@@ -1,1 +1,1 @@
-# NKNU_School_System
+# Fuck u JE-Chen
