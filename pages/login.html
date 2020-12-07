@@ -31,20 +31,30 @@
         </ul>
     </div>
 </nav>
-
 <div class="d-flex justify-content-center">
     <form action="http://127.0.0.1:5000/Login" class="form-signin" method="post">
+
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <input autofocus="" class="form-control" id="Email" name="Email" placeholder="Email address" required=""
-               type="email">
-        <input class="form-control" id="Password" name="Password" placeholder="Password" required="" type="password">
-        <input class="form-control" id="Verification_Code" name="Verification_Code" placeholder="Verification Code"
-               required="" type="text">
-        <img alt="未載入驗證碼圖片" id="Verification_Code_Image" src="" style="display: none">
+
+        <label for="Email"></label><input autofocus="" class="form-control" id="Email" name="Email"
+                                          placeholder="Email address" required="" type="email">
+        <label for="Password"></label><input class="form-control" id="Password" name="Password" placeholder="Password"
+                                             required="" type="password">
+
+        <label for="Verification_Code"></label><input class="form-control" id="Verification_Code"
+                                                      name="Verification_Code" placeholder="Verification Code"
+                                                      required="" type="text">
+
+        <div class="VerificationImage">
+            <img alt="未載入驗證碼圖片" id="Verification_Code_Image" src="">
+        </div>
+        <label>
+            <input id="RememberMe" type="checkbox" value="remember me">
+            "Remember me"
+        </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div>
-
 <script>
     Get_Code('#Verification_Code_Image')
 </script>

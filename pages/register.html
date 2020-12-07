@@ -32,13 +32,22 @@
 
 <div class="d-flex justify-content-center">
     <form action="http://127.0.0.1:5000/Register" class="form-register" method="post">
+
         <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
-        <input autofocus="" class="form-control" id="Email" name="Email" placeholder="Email address" required=""
-               type="email">
-        <input class="form-control" id="Password" name="Password" placeholder="Password" required="" type="password">
-        <input class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password"
-               required="" type="password">
+
+        <label for="Email"></label><input autofocus="" class="form-control" id="Email" name="Email"
+                                          placeholder="Email address" required=""
+                                          type="email">
+
+        <label for="Password"></label><input class="form-control" id="Password" name="Password" placeholder="Password"
+                                             required="" type="password">
+
+        <label for="ConfirmPassword"></label><input class="form-control" id="ConfirmPassword" name="ConfirmPassword"
+                                                    placeholder="Confirm Password"
+                                                    required="" type="password">
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
     </form>
 </div>
 
