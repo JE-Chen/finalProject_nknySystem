@@ -3,6 +3,7 @@ import os
 from flask import Flask, session
 from flask_cors import cross_origin
 
+from APIs.APIBlueprints.ForgotPassword import ForgotPassword
 from APIs.APIBlueprints.Login import Login
 from APIs.APIBlueprints.Register import Register
 
@@ -10,6 +11,7 @@ app = Flask(__name__)
 
 app.register_blueprint(Login.Login)
 app.register_blueprint(Register.Register)
+app.register_blueprint(ForgotPassword.ForgotPassword)
 
 app.secret_key = os.urandom(16)
 

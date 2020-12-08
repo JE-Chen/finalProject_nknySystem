@@ -5,9 +5,10 @@ from flask_cors import cross_origin
 
 Login = Blueprint('Login', __name__)
 
+
 @Login.route(r'/Login', methods=['GET', 'POST'])
 @cross_origin()
-def LoginFunction():
+def login_function():
     session['LoginState'] = "Login"
     session.permanent = True
     Login.permanent_session_lifetime = timedelta(minutes=10)
@@ -20,7 +21,7 @@ def LoginFunction():
 
 @Login.route(r'/Logout', methods=['GET'])
 @cross_origin()
-def LogoutFunction():
+def logout_function():
     if request.method == "POST":
         print(request.form.get('Email'))
         print(request.form.get('Password'))

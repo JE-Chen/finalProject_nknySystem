@@ -17,6 +17,7 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
     <script src="../scripts/Image.js" type="text/javascript"></script>
     <script src="../scripts/Range.js" type="text/javascript"></script>
+    <script src="../scripts/printPage.js" type="text/javascript"></script>
 
 </head>
 
@@ -30,16 +31,6 @@
             <!-- active在視覺上設計底色不同,表示目前在這個位置,如果不需要則刪除  -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">首頁<span class="sr-only">(Current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="login.html">登入<span class="sr-only">(Login)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="register.html">註冊<span class="sr-only">(Register)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="forgotpassword.html">忘記密碼<span class="sr-only">(Forgot Password)</span></a>
-            </li>
         </ul>
     </div>
 </nav>
@@ -50,6 +41,7 @@
     </div>
     <button id="ShowImage" onclick="Change_Image('#loading','./images/firefox_test.png')">Start</button>
     <button id="HideImage" onclick="Hide_Image('#Main_Content')">Hide</button>
+    <button id="Test" onclick="printPage()">Test</button>
 </div>
 </body>
 
