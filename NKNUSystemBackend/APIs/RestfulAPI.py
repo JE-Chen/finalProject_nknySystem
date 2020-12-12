@@ -27,13 +27,13 @@ app.secret_key = os.urandom(16)
 # 捕抓例外路徑
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def CatchAll(path):
+def catch_all(path):
     return f'Path : {path} no exist'
 
 
 @app.route(r'/', methods=['GET', 'POST'])
 @cross_origin()
-def MainPage():
+def main_page():
     if session.get("LoginState") == None:
         return "Not Login"
     return "Main"
