@@ -1,16 +1,13 @@
 import os
 
-from flask import Flask, session
-from flask_cors import cross_origin
-
 from NKNUSystemBackend.APIs.APIBlueprints.ForgotPassword import ForgotPassword
 from NKNUSystemBackend.APIs.APIBlueprints.Login import Login
-from NKNUSystemBackend.APIs.APIBlueprints.Register import Register
+from flask import Flask, session
+from flask_cors import cross_origin
 
 app = Flask(__name__)
 
 app.register_blueprint(Login.Login)
-app.register_blueprint(Register.Register)
 app.register_blueprint(ForgotPassword.ForgotPassword)
 
 app.secret_key = os.urandom(16)
@@ -28,13 +25,13 @@ app.secret_key = os.urandom(16)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    return f'Path : {path} no exist'
+    return f'Path : {path} not exist'
 
 
 @app.route(r'/', methods=['GET', 'POST'])
 @cross_origin()
 def main_page():
-    if session.get("LoginState") == None:
+    if session.get("LoginState") is None:
         return "Not Login"
     return "Main"
 
