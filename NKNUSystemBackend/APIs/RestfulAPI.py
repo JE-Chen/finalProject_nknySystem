@@ -3,9 +3,9 @@ import os
 from flask import Flask, session
 from flask_cors import cross_origin
 
-from APIs.APIBlueprints.ForgotPassword import ForgotPassword
-from APIs.APIBlueprints.Login import Login
-from APIs.APIBlueprints.Register import Register
+from NKNUSystemBackend.APIs.APIBlueprints.ForgotPassword import ForgotPassword
+from NKNUSystemBackend.APIs.APIBlueprints.Login import Login
+from NKNUSystemBackend.APIs.APIBlueprints.Register import Register
 
 app = Flask(__name__)
 
