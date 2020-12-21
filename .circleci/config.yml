@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          command: pip install --user JELogSystem
+          name: pip JELogSystem
+      - run:
+          command: pip install --user JEGmail
+          name: pip JEGmail
+      - run:
+          command: pip install --user JEDatabase
+          name: pip JELogSystem
+      - run:
+          command: pip install --user JEVerificationCode
+          name: pip JEVerificationCode
+      - run:
+          command: pip install --user JECryptography
+          name: pip JECryptography
+      - run:
+          command: pip install --user flask
+          name: pip flask
+      - run:
+          command: pip install --user flask-cors
+          name: pip flask-cors
+      - run:
+          command: pip install --user Pillow
+          name: pip Pillow
+      - run:
+          command: pip install --user google-api-python-client
+          name: pip google-api-python-client
+      - run:
+          command: pip install --user google-auth-httplib2
+          name: pip google-auth-httplib2
+      - run:
+          command: pip install --user google-auth-oauthlib
+          name: pip google-auth-oauthlib
+      - run:
+          command: pip install --user websockets
+          name: pip websockets
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
