@@ -7,9 +7,9 @@ from JEGmail.Token.GmailGetToken import GmailGetToken
 
 class GmailCore:
 
-    def __init__(self):
+    def __init__(self, path):
         try:
-            self.Gmail_API = GmailApi()
+            self.Gmail_API = GmailApi(path)
             self.Gmail_Get_Token = GmailGetToken()
             self.Smtp_Gmail = SmtpGmail()
         except Exception as error:

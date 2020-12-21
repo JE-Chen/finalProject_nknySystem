@@ -17,8 +17,12 @@ from googleapiclient.discovery import build
 
 class GmailApi:
 
-    @staticmethod
-    def get_service():
+    def __init__(self, path):
+        self.path = path
+
+    def get_service(self):
+        if self.path is None:
+            raise Exception
         scopes = [
             'https://www.googleapis.com/auth/gmail.readonly',
             'https://www.googleapis.com/auth/gmail.send',
@@ -32,7 +36,7 @@ class GmailApi:
                 cred.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    os.getcwd() + '/Test/client_secret.json', scopes)
+                    os.getcwd() + self.path + '/client_secret.json', scopes)
                 cred = flow.run_local_server(port=0)
             with open('token.pickle', 'wb') as token:
                 pickle.dump(cred, token)

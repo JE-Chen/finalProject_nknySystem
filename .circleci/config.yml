@@ -24,6 +24,10 @@ jobs:
           command: pip install --user JECryptography
           name: pip JECryptography
       - run:
+          command: pip install --user JEWebSocket
+          name: pip JEWebSocket
+
+      - run:
           command: pip install --user flask
           name: pip flask
       - run:
@@ -45,7 +49,15 @@ jobs:
           command: pip install --user websockets
           name: pip websockets
 
+      - run:
+          command: python NKNUSystemBackend/Tests/CryptographyTest/Test.py
+          name: CryptographyTest Test.py
+      - run:
+          command: python NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
+          name: CryptographyTest UnitTest.py
+
 workflows:
+  version: 2
   main:
     jobs:
       - build-and-test

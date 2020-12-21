@@ -16,4 +16,3 @@ class TestClient(unittest.TestCase):
     def testClient(self):
         client = JEWebSocket.WebsocketClient('localhost:5555')
         time.sleep(3)
-        sys.exit()
