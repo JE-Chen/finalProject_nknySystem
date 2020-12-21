@@ -89,6 +89,16 @@ jobs:
           command: python NKNUSystemBackend/Tests/WebSocketTest/ClientUnitTest.py
           name: WebSocketTest ClientUnitTest.py
 
+      - run:
+          command: python NKNUSystemBackend/Tests/DatabaseTest/CreateTestDatabase.py
+          name: DatabaseTest CreateTestDatabase.py
+      - run:
+          command: python NKNUSystemBackend/Tests/DatabaseTest/TestControl.py
+          name: DatabaseTest TestControl.py
+      - run:
+          command: python NKNUSystemBackend/Tests/DatabaseTest/UnitTest.py
+          name: DatabaseTest UnitTest.py
+
 workflows:
   version: 2
   main:
