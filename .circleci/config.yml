@@ -26,6 +26,9 @@ jobs:
       - run:
           command: pip install --user JEWebSocket
           name: pip JEWebSocket
+      - run:
+          command: pip install --user JERestfulAPI
+          name: pip JERestfulAPI
 
       - run:
           command: pip install --user flask
