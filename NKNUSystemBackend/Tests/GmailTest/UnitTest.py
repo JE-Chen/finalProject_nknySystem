@@ -10,10 +10,10 @@ class TestGmail(unittest.TestCase):
         self.Gmail = JEGmail.Core.GmailCore('')
 
     def test_log(self):
-        with open(os.getcwd() + '/Templates/Email_Template1_Picture.html', 'r+') as File:
+        with open(os.getcwd() + '/NKNUSystemBackend/Tests/GmailTest/Templates/Email_Template1_Picture.html', 'r+') as File:
             content = (File.read())
         self.Gmail.Gmail_API.send_mail_attach("410877027@mail.nknu.edu.tw", "410877027@mail.nknu.edu.tw", "Hello",
-                                              content, attach_file=os.getcwd() + '/images/firefox_test.png',
+                                              content, attach_file=os.getcwd() + '/NKNUSystemBackend/Tests/GmailTest/images/firefox_test.png',
                                               use_html=True)
         File.close()
 

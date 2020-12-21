@@ -63,9 +63,7 @@ jobs:
           command: python NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
           name: CryptographyTest UnitTest.py
 
-      - run:
-          command: python NKNUSystemBackend/Tests/GmailTest/Gmail_Test.py
-          name: GmailTest Gmail_Test.py
+
       - run:
           command: python NKNUSystemBackend/Tests/GmailTest/UnitTest.py
           name: GmailTest UnitTest.py
