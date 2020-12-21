@@ -1,0 +1,75 @@
+import smtplib
+from email.mime.text import MIMEText
+
+
+# 信件類別
+class SmtpGmail:
+    # 初始化
+    def __init__(self, gmail_user="User_Address", gmail_password="User_Password", string_to="User_Address",
+                 string_subject="Test", string_content="Test"):
+        # 設定物件內部變數 gmail_user
+        self.gmail_user = gmail_user
+        # 設定物件內部變數 gmail_password
+        self.gmail_password = gmail_password  # your gmail password
+        # 設定物件內部變數 String_To 用來決定傳給誰
+        self.string_to = string_to
+        # 設定物件內部變數 String_Subject 用來決定信件主旨
+        self.string_subject = string_subject
+        # 設定物件內部變數 String_Content 用來決定信件內容
+        self.string_content = string_content
+        # 設定物件內部變數 msg 內容為 String_Content
+        self.msg = MIMEText(string_content)
+        # 設定物件內部變數 msg 主旨為 String_Subject
+        self.msg['Subject'] = string_subject
+        # 設定物件內部變數 msg 寄件人為 自身的gmail_user
+        self.msg['From'] = self.gmail_user
+        # 設定物件內部變數 msg 收件人為 String_To
+        self.msg['To'] = string_to
+        # 設定Gmail 傳送 , Google port number 465
+        self.server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        # 支援用戶認證 helo 不支援
+        self.server.ehlo()
+
+    # 設定使用者
+    def set_user_password(self, gmail_user, gmail_password):
+        # 設定物件內部變數 gmail_user
+        self.gmail_user = gmail_user
+        # 設定物件內部變數 gmail_password
+        self.gmail_password = gmail_password  # your gmail password
+
+    def login(self):
+        # 登入
+        self.server.login(self.gmail_user, self.gmail_password)
+
+    # 設定收件者
+    def string_to(self, string_to):
+        self.string_to = string_to
+
+    # 設定主旨
+    def string_subject(self, string_subject):
+        self.string_subject = string_subject
+
+    # 設定內容
+    def string_content(self, string_content):
+        self.string_content = string_content
+
+    # 寄信
+    def send_mail(self):
+        # 資料不正確
+        if self.string_to is None or self.string_subject is None or self.string_content is None:
+            raise ValueError("未設置正確")
+        else:
+            # 信件寄出
+            self.server.send_message(self.msg)
+            # 關閉寄信smtp server
+            self.server.quit()
+            # 確認用訊息
+            print('Email sent!')
+
+    # 寄信用方法
+    def send_mail_setting(self, string_to, string_subject, string_content):
+        self.string_to = string_to
+        self.string_subject = string_subject
+        self.string_content = string_content
+        print("In Send_Mail", "TO", self.string_to, "Content", self.string_subject, "Subject", self.string_content)
+        self.send_mail()

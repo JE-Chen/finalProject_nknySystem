@@ -1,0 +1,1 @@
+from JECryptography.Module.Hash import Hash

@@ -1,0 +1,13 @@
+Flask
+Flask-Cors
+Pillow
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+websockets
+
+JEDatabase
+JELogSystem
+JEVerificationCode
+JECryptography
+JEGmail
