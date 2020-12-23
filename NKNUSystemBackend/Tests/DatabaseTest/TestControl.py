@@ -2,7 +2,7 @@ from JEDatabase.Core.SQLiteCore import SQLiteCore
 
 SQL = SQLiteCore(db_name=r'StudentSystemData.sqlite', table_name='StudentSystem')
 
-SQL.table_name = 'Account'
+SQL.table_name = 'Manager'
 
 SQL.insert_into_replace('410877027', 'test_password')
 
@@ -44,11 +44,11 @@ SQL.insert_into_replace('410877027', 'JE-Chen', '107')
 
 SQL.insert_into_replace('410877099', 'JE-Chen', '107')
 
-SQL.table_name = 'Account'
+SQL.table_name = 'Manager'
 
 SQL.select_prefix = '*'
 
-SQL.inner_join('LessonGrade', 'Account.PersonnelNumber', 'LessonGrade.PersonnelNumber')
+SQL.inner_join('LessonGrade', 'Manager.PersonnelNumber', 'LessonGrade.PersonnelNumber')
 
 SQL.table_name = 'LessonGrade'
 
@@ -67,18 +67,18 @@ SQL.table_name = 'PersonnelAccess'
 
 SQL.inner_join('PersonnelDetail', 'PersonnelDetail.PersonnelNumber', 'PersonnelAccess.PersonnelNumber')
 
-SQL.table_name = 'Account'
+SQL.table_name = 'Manager'
 
 SQL.select_prefix = 'LessonContent.LessonCode'
 
 '''
 SQL.inner_inner_join(
-    'LessonDetail', 'Account.PersonnelNumber', 'LessonDetail.PersonnelNumber',
+    'LessonDetail', 'Manager.PersonnelNumber', 'LessonDetail.PersonnelNumber',
     'LessonContent', 'LessonDetail.LessonCode', 'LessonContent.LessonCode')
 '''
 
 SQL.inner_inner_join_where(
-    'LessonDetail', 'Account.PersonnelNumber', 'LessonDetail.PersonnelNumber',
+    'LessonDetail', 'Manager.PersonnelNumber', 'LessonDetail.PersonnelNumber',
     'LessonContent', 'LessonDetail.LessonCode', 'LessonContent.LessonCode',
     'LessonDetail.LessonName', "87課")
 
