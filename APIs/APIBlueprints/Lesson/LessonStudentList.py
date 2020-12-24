@@ -7,4 +7,4 @@ LessonStudentList = Blueprint('LessonStudentList', __name__)
 @LessonStudentList.route(r'/LessonStudentList')
 @cross_origin()
 def lesson_student_list_page():
-    return render_template('/Grade/LessonStudentList.html')
+    return render_template('/Lesson/LessonStudentList.html')
