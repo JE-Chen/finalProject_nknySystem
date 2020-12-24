@@ -7,4 +7,4 @@ StudentIndex = Blueprint('StudentIndex', __name__)
 @StudentIndex.route(r'/StudentIndex')
 @cross_origin()
 def student_index_page():
-    return render_template('/Grade/StudentIndex.html')
+    return render_template('/Index/StudentIndex.html')

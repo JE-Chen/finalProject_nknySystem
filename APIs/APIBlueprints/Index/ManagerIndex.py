@@ -7,4 +7,4 @@ ManagerIndex = Blueprint('ManagerIndex', __name__)
 @ManagerIndex.route(r'/ManagerIndex')
 @cross_origin()
 def manager_index_page():
-    return render_template('/Grade/ManagerIndex.html')
+    return render_template('/Index/ManagerIndex.html')
