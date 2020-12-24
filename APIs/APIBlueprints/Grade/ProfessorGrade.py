@@ -6,5 +6,5 @@ ProfessorGrade = Blueprint('ProfessorGrade', __name__)
 
 @ProfessorGrade.route(r'/ProfessorGrade')
 @cross_origin()
-def professorGrade_page():
+def professor_grade_page():
     return render_template('/Grade/ProfessorCheckGrade.html')
