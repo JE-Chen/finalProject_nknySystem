@@ -3,7 +3,7 @@ from JEDatabase.Core.SQLiteCore import SQLiteCore
 SQL = SQLiteCore(db_name=r'StudentSystemData.sqlite', table_name='StudentSystem')
 
 SQL.create_table(
-    'CREATE TABLE IF NOT EXISTS Manager('
+    'CREATE TABLE IF NOT EXISTS Account('
     'PersonnelNumber VARCHAR(20) PRIMARY KEY ,'
     'Password VARCHAR(20))')
 
