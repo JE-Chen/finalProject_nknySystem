@@ -35,7 +35,31 @@ from APIs.APIBlueprints.Profile import Profile
 app = Flask(__name__)
 
 app.secret_key = os.urandom(16)
+
+app.register_blueprint(ForgotPassword.ForgotPassword)
 app.register_blueprint(Login.Login)
+app.register_blueprint(Logout.Logout)
+app.register_blueprint(Verification.Verification)
+
+app.register_blueprint(ProfessorCheckGrade.ProfessorCheckGrade)
+app.register_blueprint(ProfessorGrade.ProfessorGrade)
+app.register_blueprint(StudentGrade.StudentGrade)
+app.register_blueprint(StudentGradeList.StudentGradeList)
+
+app.register_blueprint(ManagerIndex.ManagerIndex)
+app.register_blueprint(ProfessorIndex.ProfessorIndex)
+app.register_blueprint(StudentIndex.StudentIndex)
+
+app.register_blueprint(ManagerAccount.ManagerAccount)
+app.register_blueprint(ManagerLessonDetail.ManagerLessonDetail)
+app.register_blueprint(ManagerStudentGrade.ManagerStudentGrade)
+app.register_blueprint(ManagerStudentDetail.ManagerStudentDetail)
+app.register_blueprint(ManagerSpawnStudentGrade.ManagerSpawnStudentGrade)
+app.register_blueprint(ManagerStudentLessonList.ManagerStudentLessonList)
+
+app.register_blueprint(ChangePassword.ChangePassword)
+app.register_blueprint(Profile.Profile)
+
 '''
 全部資料：GET + 名稱
 特定資料：GET + 名稱 + id
