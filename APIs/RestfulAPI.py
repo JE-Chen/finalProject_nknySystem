@@ -3,7 +3,34 @@ import os
 from flask import Flask
 from flask_cors import cross_origin
 
+# LoginPage
+from APIs.APIBlueprints.LoginPage import ForgotPassword
 from APIs.APIBlueprints.LoginPage import Login
+from APIs.APIBlueprints.LoginPage import Logout
+from APIs.APIBlueprints.LoginPage import Verification
+
+# Grade
+from APIs.APIBlueprints.Grade import ProfessorCheckGrade
+from APIs.APIBlueprints.Grade import ProfessorGrade
+from APIs.APIBlueprints.Grade import StudentGrade
+from APIs.APIBlueprints.Grade import StudentGradeList
+
+# Index
+from APIs.APIBlueprints.Index import ManagerIndex
+from APIs.APIBlueprints.Index import ProfessorIndex
+from APIs.APIBlueprints.Index import StudentIndex
+
+# Manager
+from APIs.APIBlueprints.Manager import ManagerAccount
+from APIs.APIBlueprints.Manager import ManagerLessonDetail
+from APIs.APIBlueprints.Manager import ManagerStudentGrade
+from APIs.APIBlueprints.Manager import ManagerStudentDetail
+from APIs.APIBlueprints.Manager import ManagerSpawnStudentGrade
+from APIs.APIBlueprints.Manager import ManagerStudentLessonList
+
+# Profile
+from APIs.APIBlueprints.Profile import ChangePassword
+from APIs.APIBlueprints.Profile import Profile
 
 app = Flask(__name__)
 
