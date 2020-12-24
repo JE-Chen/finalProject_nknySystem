@@ -31,12 +31,11 @@ function test() {
 }
 
 
-function Get_Code(Component) {
+function Get_Code() {
     const request = new XMLHttpRequest();
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             if (request.readyState === 4)
-                //Image_Base64(Component, JSON.stringify(request.responseText))
                 console.log(request.responseText);
         } else {
             console.log('err');
@@ -45,6 +44,6 @@ function Get_Code(Component) {
     request.onerror = function () {
         console.log('error')
     }
-    request.open('GET', 'http://127.0.0.1:5000/Test_Data', true)
+    request.open('GET', 'http://127.0.0.1:5000/Test', true)
     request.send()
 }
