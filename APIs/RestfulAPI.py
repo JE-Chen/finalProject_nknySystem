@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_cors import cross_origin
 
-from APIBlueprints import Login
+from APIs.APIBlueprints.LoginPage import Login
 
 app = Flask(__name__)
 
