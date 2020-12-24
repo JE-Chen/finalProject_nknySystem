@@ -4,7 +4,7 @@ from flask_cors import cross_origin
 Logout = Blueprint('Logout', __name__)
 
 
-@Login.route(r'/Logout')
+@Logout.route(r'/Logout')
 @cross_origin()
-def login_page():
+def logout_page():
     return render_template('/LoginPage/Logout.html')
