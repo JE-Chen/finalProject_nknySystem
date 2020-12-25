@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="text-center">
+<body class="text-center" style="background-color:#fbe8a6">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="collapse navbar-collapse" id="navbarNav1">
@@ -44,7 +44,8 @@
     </div>
 </nav>
 
-<div class="d-flex justify-content-center" style="padding-top: 1%">
+<div class="d-flex align-items-center justify-content-center" style="padding-top: 1%">
+
     <div class="col-sm-5">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -76,7 +77,31 @@
             </a>
         </div>
     </div>
+
+         <div class="col-sm-3" >
+        <div class="card" style="padding-left: 20%;padding-right: 20%">
+            <form action="#" class="form-sign-in" method="post">
+                <h5 class="h5 mb-0 font-weight-normal">請登入</h5>
+                <label for="Email"></label><input autofocus="" class="form-control" id="Email" name="Email"
+                                                  placeholder="郵件地址" required="" type="email">
+                <label for="Password"></label><input class="form-control" id="Password" name="Password" placeholder="密碼"
+                                                     required="" type="password">
+                <label for="Verification_Code"></label><input class="form-control" id="Verification_Code"
+                                                              name="Verification_Code" placeholder="驗證碼"
+                                                              required="" type="text">
+
+                <div style="padding-top: 5%;padding-bottom: 5%">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <h5 class="h5 mb-0 font-weight-normal">登入</h5>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
+
+
 </body>
 
 </html>

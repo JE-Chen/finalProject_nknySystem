@@ -32,6 +32,8 @@ from APIs.APIBlueprints.Manager import ManagerStudentLessonList
 from APIs.APIBlueprints.Profile import ChangePassword
 from APIs.APIBlueprints.Profile import Profile
 
+from Resource import SQL
+
 app = Flask(__name__)
 
 app.secret_key = os.urandom(16)
