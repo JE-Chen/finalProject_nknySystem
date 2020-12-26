@@ -6,9 +6,9 @@ from JEDatabase.Core.SQLiteCore import SQLiteCore
 class TestDatabase(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.SQL = SQLiteCore(r'TestAccount.sqlite', table_name='Manager')
+        self.SQL = SQLiteCore(r'TestAccount.sqlite', table_name='Account')
         self.SQL.create_table(
-            'CREATE TABLE IF NOT EXISTS Manager(id PRIMARY KEY ,email VARCHAR(50),password VARCHAR(15))')
+            'CREATE TABLE IF NOT EXISTS Account(id PRIMARY KEY ,email VARCHAR(50),password VARCHAR(15))')
 
     def tearDown(self) -> None:
         self.SQL.close()
@@ -26,10 +26,12 @@ class TestDatabase(unittest.TestCase):
         self.SQL.select_distinct()
 
     def testUpdate(self):
-        self.SQL.update('new_test@gmail.com', 'test2@gmail.com', field='email', where_what='email')
+        self.SQL.update('email', 'email', 'new_test@gmail.com', 'test_password')
 
     def testSelectAccount(self):
-        self.SQL.select_account('new_test@gmail.com', 'test_password')
+        self.SQL.select_prefix = '*'
+        self.SQL.table_name = 'Account'
+        self.SQL.select_account('email', 'password', 'new_test@gmail.com', 'test_password')
 
 
 if __name__ == '__main__':
