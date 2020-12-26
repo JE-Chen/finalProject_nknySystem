@@ -5,6 +5,8 @@ google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 websockets
+matplotlib
+Numpy
 
 JEDatabase
 JELogSystem

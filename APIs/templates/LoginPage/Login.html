@@ -14,7 +14,7 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
-    <script src="{{ url_for('static', filename='scripts/Image.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='scripts/Function.js') }}" type="text/javascript"></script>
 </head>
 
 <body class="text-center">
@@ -32,34 +32,42 @@
     </div>
 </nav>
 
-
-<div class="d-flex justify-content-center" style="padding-top: 1%">
+<form action={{url_for('Login.login_check')}} method="POST" class="d-flex justify-content-center"
+      style="padding-top: 1%">
     <div class="col-sm-3">
         <div class="card" style="padding-left: 20%;padding-right: 20%">
             <form action="#" class="form-sign-in" method="post">
                 <h5 class="h5 mb-0 font-weight-normal">請登入</h5>
-                <label for="Email"></label><input autofocus="" class="form-control" id="Email" name="Email"
-                                                  placeholder="郵件地址" required="" type="email">
-                <label for="Password"></label><input class="form-control" id="Password" name="Password" placeholder="密碼"
-                                                     required="" type="password">
-                <label for="Verification_Code"></label><input class="form-control" id="Verification_Code"
-                                                              name="Verification_Code" placeholder="驗證碼"
-                                                              required="" type="text">
+                <label for="PersonnelNumber"></label>
+                <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
+                       placeholder="請輸入編號" required="" type="number">
+                <label for="Password"></label>
+                <input class="form-control" id="Password" name="Password"
+                       placeholder="密碼"
+                       required="" type="password">
+                <label for="VerificationCode"></label>
+                <input class="form-control" id="VerificationCode"
+                       name="VerificationCode" placeholder="驗證碼"
+                       required="" type="text">
 
                 <div style="padding-top: 5%;padding-bottom: 5%">
                     <div class="VerificationImage">
-                        <img alt="未載入驗證碼圖片" id="Verification_Code_Image" src="">
+                        <img alt="未載入驗證碼圖片" id="Verification_Code_Image">
                     </div>
-                    <input id="RememberMe" type="checkbox" value="RememberMe" name="RememberMe" checked>
-                    <label for="RememberMe">記得我</label>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        <h5 class="h5 mb-0 font-weight-normal">登入</h5>
-                    </button>
                 </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <h5 class="h5 mb-0 font-weight-normal">登入</h5>
+                </button>
             </form>
         </div>
     </div>
-</div>
+</form>
+
+
+<script>
+    window.onload = Get_Code($('#Verification_Code_Image'));
+</script>
+
 </body>
 
 </html>

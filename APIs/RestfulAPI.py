@@ -32,8 +32,6 @@ from APIs.APIBlueprints.Manager import ManagerStudentLessonList
 from APIs.APIBlueprints.Profile import ChangePassword
 from APIs.APIBlueprints.Profile import Profile
 
-from Resource import SQL
-
 app = Flask(__name__)
 
 app.secret_key = os.urandom(16)
@@ -86,5 +84,5 @@ def main_page():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=80)
-    # app.run()
+    # app.run(host='0.0.0.0', port=80)
+    app.run()

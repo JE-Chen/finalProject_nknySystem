@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="StudentSystemData" uuid="24ac1618-54d1-4e85-b123-fd7e1eb0afd2">
+    <data-source source="LOCAL" name="StudentSystemData" uuid="2ff1bfc8-404a-4b27-b58d-086f79487c2f">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\WorkSpaces\Program WorkSpace\WebProgram\NKNUSystem\NKNUSystemBackend\Tests\DatabaseTest\StudentSystemData.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\WorkSpaces\Program WorkSpace\WebProgram\NKNUSystem\NKNUSystemBackend\DATABASE\StudentSystemData.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
