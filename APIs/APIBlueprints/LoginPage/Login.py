@@ -7,6 +7,7 @@ RestfulAPIResource = RestfulAPIResource
 
 SQL = RestfulAPIResource.SQL
 VerificationCode = RestfulAPIResource.VerificationCode
+LogSystem = RestfulAPIResource.LogSystem
 
 Login = Blueprint('Login', __name__)
 
@@ -20,10 +21,15 @@ def login_page():
 @Login.route(r'/LoginVerificationCode')
 @cross_origin()
 def login_verification_code():
-    verification_code = VerificationCode.generate_base64_image(5, 40)
-    session['verification_code'] = verification_code[0]
-    print(verification_code)
-    return verification_code[1]
+    if session.get('verification_code') is None:
+        verification_code = VerificationCode.generate_base64_image(5, 40)
+        session['verification_code'] = verification_code[0]
+        session['verification_image'] = verification_code[1]
+        LogSystem.debug(verification_code[0])
+        LogSystem.debug(verification_code[1])
+        return verification_code[1]
+    else:
+        return session.get('verification_image')
 
 
 @Login.route(r'/LoginCheck', methods=['POST', ])
@@ -37,11 +43,14 @@ def login_check():
         verification_code = request.form.get('VerificationCode')
         print(verification_code)
         CheckAccount = SQL.select_account('PersonnelNumber', 'Password', PersonnelNumber, Password)
+        LogSystem.warning(CheckAccount)
         if verification_code == session.get('verification_code'):
-            session['verification_code'] = False
+            session['verification_code'] = None
+            session['verification_image'] = None
             if len(CheckAccount) == 1:
                 SQL.select_prefix = 'PersonnelAccess.Access'
                 Access = SQL.inner_join('PersonnelAccess', 'Account.PersonnelNumber', 'PersonnelAccess.PersonnelNumber')
+                LogSystem.warning(Access)
                 if Access[0] == 'Normal':
                     return redirect(url_for('StudentIndex.student_index_page'))
                 elif Access[0] == 'Professor':
