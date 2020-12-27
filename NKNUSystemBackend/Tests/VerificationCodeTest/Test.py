@@ -1,7 +1,7 @@
 import JEVerificationCode
 
 g = JEVerificationCode.GenerateVerificationCode()
-Code = g.generate_base64_image(True)
+Code = g.generate_base64_image(5, 40, True)
 print(Code[0])
 print(Code[1])
 

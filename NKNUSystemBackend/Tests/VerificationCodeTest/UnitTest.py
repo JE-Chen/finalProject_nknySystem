@@ -11,7 +11,7 @@ class GenerateVerification(unittest.TestCase):
 
     @staticmethod
     def testGenerate():
-        g = JEVerificationCode.GenerateVerificationCode().generate_base64_image(True)
+        g = JEVerificationCode.GenerateVerificationCode().generate_base64_image(5, 40, True)
         print(g[0])
         print(g[1])
 
