@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session, redirect, url_for
 from flask_cors import cross_origin
 
 LessonStudentList = Blueprint('LessonStudentList', __name__)
@@ -7,4 +7,8 @@ LessonStudentList = Blueprint('LessonStudentList', __name__)
 @LessonStudentList.route(r'/LessonStudentList')
 @cross_origin()
 def lesson_student_list_page():
-    return render_template('/Lesson/LessonStudentList.html')
+    if session.get('Login'):
+        return render_template('/Lesson/LessonStudentList.html')
+    else:
+        return redirect(url_for('Login.login_page'))
+

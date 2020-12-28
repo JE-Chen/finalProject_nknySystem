@@ -51,10 +51,14 @@ def login_check():
                 SQL.select_prefix = 'PersonnelAccess.Access'
                 Access = SQL.inner_join('PersonnelAccess', 'Account.PersonnelNumber', 'PersonnelAccess.PersonnelNumber')
                 LogSystem.warning(Access)
+                session['Login'] = True
                 if Access[0] == 'Normal':
+                    session['Access'] = 'Normal'
                     return redirect(url_for('StudentIndex.student_index_page'))
                 elif Access[0] == 'Professor':
+                    session['Access'] = 'Professor'
                     return redirect(url_for('ProfessorIndex.professor_index_page'))
                 elif Access[0] == 'Super':
+                    session['Access'] = 'Super'
                     return redirect(url_for('ManagerIndex.manager_index_page'))
     return redirect(url_for('Login.login_page'))

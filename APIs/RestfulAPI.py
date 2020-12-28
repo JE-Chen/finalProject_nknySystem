@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 
-from flask import Flask
+from flask import Flask, session, url_for, redirect
 from flask_cors import cross_origin
 
 # Grade
@@ -13,6 +13,9 @@ from APIs.APIBlueprints.Grade import StudentGradeList
 from APIs.APIBlueprints.Index import ManagerIndex
 from APIs.APIBlueprints.Index import ProfessorIndex
 from APIs.APIBlueprints.Index import StudentIndex
+# Lesson
+from APIs.APIBlueprints.Lesson import LessonList
+from APIs.APIBlueprints.Lesson import LessonStudentList
 # LoginPage
 from APIs.APIBlueprints.LoginPage import ForgotPassword
 from APIs.APIBlueprints.LoginPage import Login
@@ -49,6 +52,9 @@ app.register_blueprint(ManagerIndex.ManagerIndex)
 app.register_blueprint(ProfessorIndex.ProfessorIndex)
 app.register_blueprint(StudentIndex.StudentIndex)
 
+app.register_blueprint(LessonList.LessonList)
+app.register_blueprint(LessonStudentList.LessonStudentList)
+
 app.register_blueprint(ManagerAccount.ManagerAccount)
 app.register_blueprint(ManagerLessonDetail.ManagerLessonDetail)
 app.register_blueprint(ManagerStudentGrade.ManagerStudentGrade)
@@ -79,6 +85,22 @@ def catch_all(path):
 @cross_origin()
 def main_page():
     return 'Success'
+
+
+@app.route(r'/GET/MainPageHTML')
+@cross_origin()
+def main_page_html():
+    Access = session.get('Access')
+    if Access == 'Normal':
+        session['Access'] = 'Normal'
+        return redirect(url_for('StudentIndex.student_index_page'))
+    elif Access == 'Professor':
+        session['Access'] = 'Professor'
+        return redirect(url_for('ProfessorIndex.professor_index_page'))
+    elif Access == 'Super':
+        session['Access'] = 'Super'
+        return redirect(url_for('ManagerIndex.manager_index_page'))
+    return redirect(url_for('Login.login_page'))
 
 
 if __name__ == "__main__":
