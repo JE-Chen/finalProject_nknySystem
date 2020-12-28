@@ -59,53 +59,53 @@ jobs:
           name: pip websockets
 
       - run:
-          command: python NKNUSystemBackend/Tests/CryptographyTest/Test.py
+          command: python Project/NKNUSystemBackend/Tests/CryptographyTest/Test.py
           name: CryptographyTest Test.py
       - run:
-          command: python NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
           name: CryptographyTest UnitTest.py
 
       - run:
-          command: python NKNUSystemBackend/Tests/CryptographyTest/Test.py
+          command: python  Project/NKNUSystemBackend/Tests/CryptographyTest/Test.py
           name: CryptographyTest Test.py
       - run:
-          command: python NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/CryptographyTest/UnitTest.py
           name: CryptographyTest UnitTest.py
 
 
       - run:
-          command: python NKNUSystemBackend/Tests/GmailTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/GmailTest/UnitTest.py
           name: GmailTest UnitTest.py
 
       - run:
-          command: python NKNUSystemBackend/Tests/LogSystemTest/Test.py
+          command: python  Project/NKNUSystemBackend/Tests/LogSystemTest/Test.py
           name: LogSystemTest Test.py
       - run:
-          command: python NKNUSystemBackend/Tests/LogSystemTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/LogSystemTest/UnitTest.py
           name: LogSystemTest UnitTest.py
 
       - run:
-          command: python NKNUSystemBackend/Tests/VerificationCodeTest/Test.py
+          command: python  Project/NKNUSystemBackend/Tests/VerificationCodeTest/Test.py
           name: VerificationCodeTest Test.py
       - run:
-          command: python NKNUSystemBackend/Tests/VerificationCodeTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/VerificationCodeTest/UnitTest.py
           name: VerificationCodeTest UnitTest.py
 
       - run:
-          command: python NKNUSystemBackend/Tests/WebSocketTest/ServerUnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/WebSocketTest/ServerUnitTest.py
           name: WebSocketTest ServerUnitTest.py
       - run:
-          command: python NKNUSystemBackend/Tests/WebSocketTest/ClientUnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/WebSocketTest/ClientUnitTest.py
           name: WebSocketTest ClientUnitTest.py
 
       - run:
-          command: python NKNUSystemBackend/Tests/DatabaseTest/CreateTestDatabase.py
+          command: python  Project/NKNUSystemBackend/Tests/DatabaseTest/CreateTestDatabase.py
           name: DatabaseTest CreateTestDatabase.py
       - run:
-          command: python NKNUSystemBackend/Tests/DatabaseTest/TestControl.py
+          command: python  Project/NKNUSystemBackend/Tests/DatabaseTest/TestControl.py
           name: DatabaseTest TestControl.py
       - run:
-          command: python NKNUSystemBackend/Tests/DatabaseTest/UnitTest.py
+          command: python  Project/NKNUSystemBackend/Tests/DatabaseTest/UnitTest.py
           name: DatabaseTest UnitTest.py
 
 workflows:
