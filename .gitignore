@@ -127,7 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-NKNUSystemBackend/.idea/discord.xml
+Project/NKNUSystemBackend/.idea/discord.xml
 Test/token.pickle
 Token/credentials.json
 
