@@ -7,4 +7,7 @@ ChangePassword = Blueprint('ChangePassword', __name__)
 @ChangePassword.route(r'/ChangePassword')
 @cross_origin()
 def change_password_page():
-    return render_template('/Profile/ChangePassword.html')
+    if session.get('Login') == 'Login':
+        return render_template('/Profile/ChangePassword.html')
+    else:
+        return redirect(url_for('Login.login_page'))

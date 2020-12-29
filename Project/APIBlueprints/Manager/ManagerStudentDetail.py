@@ -7,7 +7,7 @@ ManagerStudentDetail = Blueprint('ManagerStudentDetail', __name__)
 @ManagerStudentDetail.route(r'/ManagerStudentDetail')
 @cross_origin()
 def manager_student_detail_page():
-    if session.get('Login'):
+    if session.get('Login') == 'Login':
         return render_template('/Manager/ManagerStudentDetail.html')
     else:
         return redirect(url_for('Login.login_page'))

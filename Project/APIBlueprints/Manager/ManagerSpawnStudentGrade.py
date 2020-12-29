@@ -7,7 +7,7 @@ ManagerSpawnStudentGrade = Blueprint('ManagerSpawnStudentGrade', __name__)
 @ManagerSpawnStudentGrade.route(r'/ManagerSpawnStudentGrade')
 @cross_origin()
 def manager_spawn_student_grade_page():
-    if session.get('Login'):
+    if session.get('Login') == 'Login':
         return render_template('/Manager/ManagerSpawnStudentGrade.html')
     else:
         return redirect(url_for('Login.login_page'))

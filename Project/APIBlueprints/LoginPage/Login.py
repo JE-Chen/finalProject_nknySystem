@@ -57,7 +57,7 @@ def login_check():
                                               'Account.PersonnelNumber',
                                               request.form.get('PersonnelNumber'))
                 LogSystem.warning(Access)
-                session['Login'] = True
+                session['Login'] = 'Login'
                 if Access[0] == Hash.hash_sha512('Normal'):
                     session['Access'] = Hash.hash_sha512('Normal')
                     LogSystem.warning('Login Normal')
