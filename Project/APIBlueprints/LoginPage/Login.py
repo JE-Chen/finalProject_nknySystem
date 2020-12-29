@@ -17,18 +17,20 @@ def login_page():
     return render_template('/LoginPage/Login.html')
 
 
-@Login.route(r'/LoginVerificationCode')
+@Login.route(r'/GET/LoginVerificationCode', methods=['GET', ])
 @cross_origin()
 def login_verification_code():
-    if session.get('verification_code') is None:
-        verification_code = VerificationCode.generate_base64_image(5, 40)
-        session['verification_code'] = verification_code[0]
-        session['verification_image'] = verification_code[1]
-        LogSystem.debug(verification_code[0])
-        LogSystem.debug(verification_code[1])
-        return verification_code[1]
-    else:
-        return session.get('verification_image')
+    if request.method == 'GET':
+        if session.get('verification_code') is None:
+            verification_code = VerificationCode.generate_base64_image(5, 40)
+            session['verification_code'] = verification_code[0]
+            session['verification_image'] = verification_code[1]
+            LogSystem.debug(verification_code[0])
+            LogSystem.debug(verification_code[1])
+            return verification_code[1]
+        else:
+            return session.get('verification_image')
+    return redirect(url_for('Login.login_page'))
 
 
 @Login.route(r'/LoginCheck', methods=['POST', ])
