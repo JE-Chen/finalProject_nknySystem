@@ -17,7 +17,7 @@ def login_page():
     return render_template('/LoginPage/Login.html')
 
 
-@Login.route(r'/GET/LoginVerificationCode', methods=['GET', ])
+@Login.route(r'/GET/LoginVerificationCode')
 @cross_origin()
 def login_verification_code():
     if request.method == 'GET':
@@ -33,15 +33,15 @@ def login_verification_code():
     return redirect(url_for('Login.login_page'))
 
 
-@Login.route(r'/LoginCheck', methods=['POST', ])
+@Login.route(r'/GET/LoginCheck')
 @cross_origin()
 def login_check():
-    if request.method == 'POST':
+    if request.method == 'GET':
         SQL.table_name = 'Account'
         SQL.select_prefix = '*'
-        PersonnelNumber = request.form.get('PersonnelNumber')
-        Password = request.form.get('Password')
-        verification_code = request.form.get('VerificationCode')
+        PersonnelNumber = request.args.get('PersonnelNumber')
+        Password = request.args.get('Password')
+        verification_code = request.args.get('VerificationCode')
         Password = Hash.hash_sha512(Password)
         CheckAccount = SQL.select_account('PersonnelNumber', 'Password', PersonnelNumber, Password)
         LogSystem.debug(Password)
@@ -52,10 +52,10 @@ def login_check():
             if len(CheckAccount) == 1:
                 SQL.select_prefix = 'PersonnelAccess.Access'
                 Access = SQL.inner_join_where('PersonnelAccess',
-                                              request.form.get('PersonnelNumber'),
+                                              request.args.get('PersonnelNumber'),
                                               'PersonnelAccess.PersonnelNumber',
                                               'Account.PersonnelNumber',
-                                              request.form.get('PersonnelNumber'))
+                                              request.args.get('PersonnelNumber'))
                 LogSystem.warning(Access)
                 session['Login'] = 'Login'
                 if Access[0] == Hash.hash_sha512('Normal'):

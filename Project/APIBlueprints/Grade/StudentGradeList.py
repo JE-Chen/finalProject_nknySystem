@@ -4,7 +4,7 @@ from flask_cors import cross_origin
 StudentGradeList = Blueprint('StudentGradeList', __name__)
 
 
-@StudentGradeList.route(r'/StudentGradeList')
+@StudentGradeList.route(r'/GET/StudentGradeList')
 @cross_origin()
 def student_grade_list_page():
     if session.get('Login') == 'Login':

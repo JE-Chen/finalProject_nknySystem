@@ -20,6 +20,7 @@ from Project.APIBlueprints.Lesson import LessonStudentList
 from Project.APIBlueprints.LoginPage import ForgotPassword
 from Project.APIBlueprints.LoginPage import Login
 from Project.APIBlueprints.LoginPage import Logout
+from Project.APIBlueprints.LoginPage import ResetPassword
 from Project.APIBlueprints.LoginPage import Verification
 # Manager
 from Project.APIBlueprints.Manager import ManagerAccount
@@ -44,6 +45,7 @@ app.config["SESSION_PERMANENT"] = False
 app.register_blueprint(ForgotPassword.ForgotPassword)
 app.register_blueprint(Login.Login)
 app.register_blueprint(Logout.Logout)
+app.register_blueprint(ResetPassword.ResetPassword)
 app.register_blueprint(Verification.Verification)
 
 app.register_blueprint(ProfessorCheckGrade.ProfessorCheckGrade)

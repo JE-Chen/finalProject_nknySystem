@@ -4,7 +4,7 @@ from flask_cors import cross_origin
 ChangePassword = Blueprint('ChangePassword', __name__)
 
 
-@ChangePassword.route(r'/ChangePassword')
+@ChangePassword.route(r'/GET/ChangePassword')
 @cross_origin()
 def change_password_page():
     if session.get('Login') == 'Login':

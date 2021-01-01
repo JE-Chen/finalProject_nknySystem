@@ -1312,7 +1312,7 @@
     </column>
     <column id="488" parent="168" name="Password">
       <Position>2</Position>
-      <DataType>VARCHAR(300)|0s</DataType>
+      <DataType>VARCHAR(500)|0s</DataType>
     </column>
     <index id="489" parent="168" name="sqlite_autoindex_Account_1">
       <NameSurrogate>1</NameSurrogate>

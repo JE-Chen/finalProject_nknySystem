@@ -4,7 +4,7 @@ from flask_cors import cross_origin
 StudentIndex = Blueprint('StudentIndex', __name__)
 
 
-@StudentIndex.route(r'/StudentIndex')
+@StudentIndex.route(r'/GET/StudentIndex')
 @cross_origin()
 def student_index_page():
     if session.get('Login') == 'Login':

@@ -4,10 +4,10 @@ from flask_cors import cross_origin
 ManagerLessonDetail = Blueprint('ManagerLessonDetail', __name__)
 
 
-@ManagerLessonDetail.route(r'/ManagerLessonDetail')
+@ManagerLessonDetail.route(r'/GET/ManagerLessonDetail')
 @cross_origin()
 def manager_lesson_detail_page():
-    if session.get('Login') == 'Login':
+    if session.get('Login') == 'Login' and session.get('Access') == Hash.hash_sha512('Super'):
         return render_template('/Manager/ManagerLessonDetail.html')
     else:
         return redirect(url_for('Login.login_page'))

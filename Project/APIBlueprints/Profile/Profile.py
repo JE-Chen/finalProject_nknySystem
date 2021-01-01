@@ -4,7 +4,7 @@ from flask_cors import cross_origin
 Profile = Blueprint('Profile', __name__)
 
 
-@Profile.route(r'/Profile')
+@Profile.route(r'/GET/Profile')
 @cross_origin()
 def profile_page():
     if session.get('Login') == 'Login':
