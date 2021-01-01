@@ -141,6 +141,14 @@ SQL.insert_into_replace('410877027', 'JE-Chen', '107')
 SQL.table_name = 'SemesterLesson'
 
 SQL.insert_into_replace('A001', '410877027', '109')
+SQL.insert_into_replace('A002', '410877014', '109')
+SQL.insert_into_replace('A003', '410877001', '109')
+SQL.insert_into_replace('A004', '410777002', '108')
+
+SQL.insert_into_replace('B001', '410877027', '109')
+SQL.insert_into_replace('B002', '410877014', '109')
+SQL.insert_into_replace('B003', '410877001', '109')
+SQL.insert_into_replace('B004', '410777002', '108')
 
 SQL.select_prefix = "*"
 

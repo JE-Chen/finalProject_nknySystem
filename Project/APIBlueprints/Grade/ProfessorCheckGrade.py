@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 from flask_cors import cross_origin
+from Project.Resource import RestfulAPIResource
 
+Hash = RestfulAPIResource.Hash
 ProfessorCheckGrade = Blueprint('ProfessorCheckGrade', __name__)
 
 
@@ -11,4 +13,3 @@ def professor_check_grade_page():
         return render_template('/Grade/ProfessorCheckGrade.html')
     else:
         return redirect(url_for('Login.login_page'))
-

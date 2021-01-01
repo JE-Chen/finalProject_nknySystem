@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 from flask_cors import cross_origin
+from Project.Resource import RestfulAPIResource
 
+Hash = RestfulAPIResource.Hash
 ManagerAccount = Blueprint('ManagerAccount', __name__)
 
 
