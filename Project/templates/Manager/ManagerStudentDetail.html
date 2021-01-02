@@ -32,6 +32,77 @@
     </div>
 </nav>
 
+<div class="d-flex justify-content-center">
+    <div class="col-sm-3" style="padding-top: 1%">
+        <div class="card" style="padding-left: 20%;padding-right: 20%">
+
+            <form action="#" class="form-group" method="POST">
+                <h5 class="h5 mb-0 font-weight-normal">請輸入資訊</h5>
+
+                <label for="PersonnelNumber"></label>
+                <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
+                       placeholder="請輸入學期" required="" type="text">
+
+                <label for="LessonNameAdd"></label>
+                <input autofocus="" class="form-control" id="LessonNameAdd" name="LessonNameAdd"
+                       placeholder="請輸入課程名稱" required="" type="text">
+
+                <label for="LessonCreditAdd"></label>
+                <input class="form-control" id="LessonCreditAdd" name="LessonCreditAdd"
+                       placeholder="請輸入課程學分"
+                       required="" type="text">
+
+                <label for="LessonProfessorAdd"></label>
+                <input class="form-control" id="LessonProfessorAdd" name="LessonProfessorAdd"
+                       placeholder="請輸入課程教授"
+                       required="" type="text">
+
+                <div style="padding: 5%">
+
+                    <label>
+                        <select class="form-control" name="select_add_or_edit">
+                            <option>新增</option>
+                            <option>修改</option>
+                        </select>
+                    </label>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <h5 class="h5 mb-0 font-weight-normal">送出</h5>
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="col-sm-10" style="padding-top: 1%">
+        <div class="card" style="padding-left: 5%;padding-right: 5%">
+            <form action="#" class="form-group" method="POST">
+
+                <div style="padding: 1% 30%;">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <h5 class="h5 mb-0 font-weight-normal">刪除</h5>
+                    </button>
+                </div>
+
+                <table class="table table-sm table-hover" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">選取</th>
+                        <th scope="col">學生編號</th>
+                        <th scope="col">學生姓名</th>
+                        <th scope="col">入學年分</th>
+                    </tr>
+                    </thead>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>
