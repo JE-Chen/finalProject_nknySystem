@@ -36,26 +36,25 @@
     <div class="col-sm-3" style="padding-top: 1%">
         <div class="card" style="padding-left: 20%;padding-right: 20%">
 
-            <form action="#" class="form-group" method="POST">
+            <form action="{{url_for('ManagerStudentDetail.manager_edit_student_detail')}}" class="form-group" method="POST"
+                  onsubmit="Ajax('GET', '/PUT/StudentDetail', 'AjaxTable_ManagerStudentDetail', $('#table'));">
                 <h5 class="h5 mb-0 font-weight-normal">請輸入資訊</h5>
+
+                <input type="hidden" name="method" value="PUT">
 
                 <label for="PersonnelNumber"></label>
                 <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
-                       placeholder="請輸入學期" required="" type="text">
+                       placeholder="請輸入編號" required type="text">
 
-                <label for="LessonNameAdd"></label>
-                <input autofocus="" class="form-control" id="LessonNameAdd" name="LessonNameAdd"
-                       placeholder="請輸入課程名稱" required="" type="text">
+                <label for="PersonnelName"></label>
+                <input autofocus="" class="form-control" id="PersonnelName" name="PersonnelName"
+                       placeholder="請輸入姓名" required type="text">
 
-                <label for="LessonCreditAdd"></label>
-                <input class="form-control" id="LessonCreditAdd" name="LessonCreditAdd"
-                       placeholder="請輸入課程學分"
-                       required="" type="text">
+                <label for="EnrollYear"></label>
+                <input class="form-control" id="EnrollYear" name="EnrollYear"
+                       placeholder="請輸入入學年分"
+                       required type="text">
 
-                <label for="LessonProfessorAdd"></label>
-                <input class="form-control" id="LessonProfessorAdd" name="LessonProfessorAdd"
-                       placeholder="請輸入課程教授"
-                       required="" type="text">
 
                 <div style="padding: 5%">
 
@@ -80,7 +79,9 @@
 <div class="d-flex justify-content-center">
     <div class="col-sm-10" style="padding-top: 1%">
         <div class="card" style="padding-left: 5%;padding-right: 5%">
-            <form action="{{url_for('ManagerStudentDetail.manager_remove_student_detail')}}" class="form-group" method="POST">
+            <form action="{{url_for('ManagerStudentDetail.manager_remove_student_detail')}}" class="form-group"
+                  method="POST"
+                  onsubmit="Ajax('GET', '/GET/Account', 'AjaxTable_ManagerStudentDetail', $('#table'));">
 
                 <input type="hidden" name="method" value="DELETE">
 
@@ -106,7 +107,7 @@
 </div>
 
 <script>
-    window.onload = Ajax('GET', '/GET/Account', 'AjaxTable_ManagerAccount', $('#table'));
+    window.onload = Ajax('GET', '/GET/StudentDetail', 'AjaxTable_ManagerStudentDetail', $('#table'));
 </script>
 
 </body>

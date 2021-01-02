@@ -29,34 +29,22 @@ def manager_account():
     return json.dumps(Accounts)
 
 
-@ManagerAccount.route(r'/PUT/AddAccount', methods=['POST', ])
+@ManagerAccount.route(r'/PUT/Account', methods=['POST', ])
 @cross_origin()
 def manager_edit_account():
     if request.method == 'POST':
         if request.form.get('method') == 'PUT':
             SQL.table_name = 'Account'
-            PersonnelNumber = request.form.get('PersonnelNumberAdd')
-            if request.form.get('select_add_or_edit') == '新增':
-                Password = request.form.get('PasswordAdd')
-                if Password is None:
-                    return render_template('/Manager/ManagerAccount.html')
-                SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512(Password))
-                SQL.table_name = 'PersonnelAccess'
-                if request.form.get('select_access') == '學生帳號':
-                    SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512('Normal'))
-                elif request.form.get('select_access') == '教授帳號':
-                    SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512('Professor'))
-                return render_template('/Manager/ManagerAccount.html')
-            elif request.form.get('select_add_or_edit') == '修改':
-                PasswordEdit = request.form.get('PasswordEdit')
-                if PasswordEdit is None:
-                    return render_template('/Manager/ManagerAccount.html')
-                SQL.table_name = 'Account'
-                SQL.select_prefix = '*'
-                Check = SQL.select_where('PersonnelNumber', PersonnelNumber)
-                if len(Check) > 0:
-                    SQL.update('Password', 'PersonnelNumber', Hash.hash_sha512(PasswordEdit), PersonnelNumber)
-                return render_template('/Manager/ManagerAccount.html')
+            PersonnelNumber = request.form.get('PersonnelNumber')
+            Password = request.form.get('Password')
+            SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512(Password))
+            Access = request.form.get('select_access')
+            SQL.table_name = 'PersonnelAccess'
+            if Access == '學生帳號':
+                SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512('Normal'))
+            elif Access == '教授帳號':
+                SQL.insert_into_replace(PersonnelNumber, Hash.hash_sha512('Professor'))
+            return render_template('/Manager/ManagerAccount.html')
     return render_template('/Manager/ManagerAccount.html')
 
 
@@ -65,11 +53,11 @@ def manager_edit_account():
 def manager_remove_account():
     if request.method == 'POST':
         if request.form.get('method') == 'DELETE':
+            SQL.table_name = 'Account'
             for keys in request.values:
                 if keys == 'method':
                     pass
                 else:
-                    SQL.table_name = 'Account'
                     SQL.delete('PersonnelNumber', keys)
                     SQL.table_name = 'PersonnelAccess'
                     SQL.delete('PersonnelNumber', keys)

@@ -15,17 +15,59 @@ function Ajax(method, url, eventCode, component, event) {
                         break;
 
                     case 'AjaxTable_ManagerAccount':
-                        let tableText = request.responseText
-                        let jsonText = JSON.parse(tableText)
-                        for (let i = 0; i < jsonText.length; i++) {
-                            let a = jsonText[i]
+                        let ManagerAccountTableText = request.responseText
+                        let ManagerAccountJsonText = JSON.parse(ManagerAccountTableText)
+                        for (let i = 0; i < ManagerAccountJsonText.length; i++) {
+                            let ManagerAccount = ManagerAccountJsonText[i]
                             $(component).append(
                                 '<tbody>' +
                                 '<tr>' +
                                 '<th scope="row">' +
-                                '<input name= ' + a[0] + ' type="checkbox">' +
+                                '<input name= ' + ManagerAccount[0] + ' type="checkbox">' +
                                 '</th>' +
-                                '<td>' + a[0] + '</td>' +
+                                '<td>' + ManagerAccount[0] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
+
+                    case 'AjaxTable_ManagerStudentDetail':
+                        let ManagerStudentDetailTableText = request.responseText
+                        let ManagerStudentDetailJsonText = JSON.parse(ManagerStudentDetailTableText)
+                        for (let i = 0; i < ManagerStudentDetailJsonText.length; i++) {
+                            let ManagerStudentDetail = ManagerStudentDetailJsonText[i]
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<th scope="row">' +
+                                '<input name= ' + ManagerStudentDetail[0] + ' type="checkbox">' +
+                                '</th>' +
+                                '<td>' + ManagerStudentDetail[0] + '</td>' +
+                                '<td>' + ManagerStudentDetail[1] + '</td>' +
+                                '<td>' + ManagerStudentDetail[2] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
+
+                    case 'AjaxTable_ManagerLessonDetail':
+                        let ManagerLessonDetailTableText = request.responseText
+                        let ManagerLessonDetailJsonText = JSON.parse(ManagerLessonDetailTableText)
+                        for (let i = 0; i < ManagerLessonDetailJsonText.length; i++) {
+                            let ManagerLessonDetail = ManagerLessonDetailJsonText[i]
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<th scope="row">' +
+                                '<input name= ' + ManagerLessonDetail[0] + ' type="checkbox">' +
+                                '</th>' +
+                                '<td>' + ManagerLessonDetail[0] + '</td>' +
+                                '<td>' + ManagerLessonDetail[1] + '</td>' +
+                                '<td>' + ManagerLessonDetail[2] + '</td>' +
+                                '<td>' + ManagerLessonDetail[3] + '</td>' +
+                                '<td>' + ManagerLessonDetail[4] + '</td>' +
                                 '</tr>' +
                                 '</tbody>'
                             )

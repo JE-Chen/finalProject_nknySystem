@@ -36,31 +36,35 @@
     <div class="col-sm-3" style="padding-top: 1%">
         <div class="card" style="padding-left: 20%;padding-right: 20%">
 
-            <form action="#" class="form-group" method="POST">
+            <form action="{{url_for('ManagerLessonDetail.manager_edit_lesson_detail')}}" class="form-group"
+                  method="POST"
+                  onsubmit="Ajax('GET', '/GET/LessonDetail', 'AjaxTable_ManagerLessonDetail', $('#table'));">
                 <h5 class="h5 mb-0 font-weight-normal">請輸入資訊</h5>
 
-                <label for="LessonSemester"></label>
-                <input autofocus="" class="form-control" id="LessonSemester" name="LessonSemester"
-                       placeholder="請輸入學期" required="" type="text">
+                <input type="hidden" name="method" value="PUT">
+
+                <label for="LessonCode"></label>
+                <input autofocus="" class="form-control" id="LessonCode" name="LessonCode"
+                       placeholder="請輸入課程代碼" required type="text">
 
                 <label for="LessonName"></label>
                 <input autofocus="" class="form-control" id="LessonName" name="LessonName"
-                       placeholder="請輸入課程名稱" required="" type="text">
+                       placeholder="請輸入課程名稱" required type="text">
 
                 <label for="LessonCredit"></label>
                 <input class="form-control" id="LessonCredit" name="LessonCredit"
                        placeholder="請輸入課程學分"
-                       required="" type="text">
+                       required type="text">
 
                 <label for="LessonProfessor"></label>
                 <input class="form-control" id="LessonProfessor" name="LessonProfessor"
                        placeholder="請輸入課程教授"
-                       required="" type="text">
+                       required type="text">
 
                 <label for="LessonType"></label>
                 <input class="form-control" id="LessonType" name="LessonType"
                        placeholder="請輸入課程必選修"
-                       required="" type="text">
+                       required type="text">
 
                 <div style="padding: 5%">
 
@@ -85,7 +89,11 @@
 <div class="d-flex justify-content-center">
     <div class="col-sm-10" style="padding-top: 1%">
         <div class="card" style="padding-left: 5%;padding-right: 5%">
-            <form action="#" class="form-group" method="POST">
+            <form action="{{url_for('ManagerLessonDetail.manager_remove_lesson_detail')}}" class="form-group"
+                  method="POST"
+                  onsubmit="Ajax('GET', '/GET/LessonDetail', 'AjaxTable_ManagerLessonDetail', $('#table'));">
+
+                <input type="hidden" name="method" value="DELETE">
 
                 <div style="padding: 1% 30%;">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
@@ -109,6 +117,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = Ajax('GET', '/GET/LessonDetail', 'AjaxTable_ManagerLessonDetail', $('#table'));
+</script>
 
 </body>
 
