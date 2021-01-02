@@ -20,7 +20,6 @@ from Project.APIBlueprints.Lesson import LessonStudentList
 from Project.APIBlueprints.LoginPage import ForgotPassword
 from Project.APIBlueprints.LoginPage import Login
 from Project.APIBlueprints.LoginPage import Logout
-from Project.APIBlueprints.LoginPage import ResetPassword
 from Project.APIBlueprints.LoginPage import Verification
 # Manager
 from Project.APIBlueprints.Manager import ManagerAccount
@@ -30,8 +29,8 @@ from Project.APIBlueprints.Manager import ManagerStudentDetail
 from Project.APIBlueprints.Manager import ManagerStudentGrade
 from Project.APIBlueprints.Manager import ManagerStudentLessonList
 # Profile
-from Project.APIBlueprints.Profile import ChangePassword
-from Project.APIBlueprints.Profile import Profile
+from Project.APIBlueprints.Profile import Profile, ResetPassword
+# Resource
 from Project.Resource import RestfulAPIResource
 
 Hash = RestfulAPIResource.Hash
@@ -67,7 +66,6 @@ app.register_blueprint(ManagerStudentDetail.ManagerStudentDetail)
 app.register_blueprint(ManagerSpawnStudentGrade.ManagerSpawnStudentGrade)
 app.register_blueprint(ManagerStudentLessonList.ManagerStudentLessonList)
 
-app.register_blueprint(ChangePassword.ChangePassword)
 app.register_blueprint(Profile.Profile)
 
 '''

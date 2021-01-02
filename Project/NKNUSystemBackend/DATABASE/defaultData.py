@@ -45,27 +45,27 @@ SQL.insert_into_replace('410877035', Hash.hash_sha512('12345678'))
 
 SQL.table_name = 'LessonContent'
 
-SQL.insert_into_replace('A001', '測試課程-體育', '體育', '109')
-SQL.insert_into_replace('A002', '測試課程-英文', '英文', '109')
-SQL.insert_into_replace('A003', '測試課程-數學', '數學', '109')
-SQL.insert_into_replace('A004', '測試課程-國文', '國文', '109')
+SQL.insert_into_replace('A001', '測試課程-體育-A', '體育', '109')
+SQL.insert_into_replace('A002', '測試課程-英文-A', '英文', '109')
+SQL.insert_into_replace('A003', '測試課程-數學-A', '數學', '109')
+SQL.insert_into_replace('A004', '測試課程-國文-A', '國文', '109')
 
-SQL.insert_into_replace('B001', '測試課程-體育', '體育', '108')
-SQL.insert_into_replace('B002', '測試課程-英文', '英文', '108')
-SQL.insert_into_replace('B003', '測試課程-數學', '數學', '108')
-SQL.insert_into_replace('B004', '測試課程-國文', '國文', '108')
+SQL.insert_into_replace('B001', '測試課程-體育-B', '體育', '108')
+SQL.insert_into_replace('B002', '測試課程-英文-B', '英文', '108')
+SQL.insert_into_replace('B003', '測試課程-數學-B', '數學', '108')
+SQL.insert_into_replace('B004', '測試課程-國文-B', '國文', '108')
 
 SQL.table_name = 'LessonDetail'
 
-SQL.insert_into_replace('A001', '測試課程-體育', '1', 'HCP', '選修')
-SQL.insert_into_replace('A002', '測試課程-英文', '2', 'HCP', '必修')
-SQL.insert_into_replace('A003', '測試課程-數學', '3', 'HCP', '必修')
-SQL.insert_into_replace('A004', '測試課程-國文', '2', 'HCP', '必修')
+SQL.insert_into_replace('A001', '測試課程-體育-A', '1', 'HCP', '選修')
+SQL.insert_into_replace('A002', '測試課程-英文-A', '2', 'HCP', '必修')
+SQL.insert_into_replace('A003', '測試課程-數學-A', '3', 'HCP', '必修')
+SQL.insert_into_replace('A004', '測試課程-國文-A', '2', 'HCP', '必修')
 
-SQL.insert_into_replace('B001', '測試課程-體育', '1', 'HCP', '選修')
-SQL.insert_into_replace('B002', '測試課程-英文', '2', 'HCP', '必修')
-SQL.insert_into_replace('B003', '測試課程-數學', '3', 'HCP', '必修')
-SQL.insert_into_replace('B004', '測試課程-國文', '2', 'HCP', '必修')
+SQL.insert_into_replace('B001', '測試課程-體育-B', '1', 'HCP', '選修')
+SQL.insert_into_replace('B002', '測試課程-英文-B', '2', 'HCP', '必修')
+SQL.insert_into_replace('B003', '測試課程-數學-B', '3', 'HCP', '必修')
+SQL.insert_into_replace('B004', '測試課程-國文-B', '2', 'HCP', '必修')
 
 SQL.table_name = 'LessonGrade'
 

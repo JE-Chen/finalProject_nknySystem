@@ -15,7 +15,7 @@ LogSystem = RestfulAPIResource.LogSystem
 @ResetPassword.route(r'/GET/ResetPassword')
 @cross_origin()
 def reset_password_page():
-    return render_template('/LoginPage/ResetPassword.html')
+    return render_template('/Profile/ResetPassword.html')
 
 
 @ResetPassword.route(r'/PUT/ResetPassword', methods=['POST', ])
