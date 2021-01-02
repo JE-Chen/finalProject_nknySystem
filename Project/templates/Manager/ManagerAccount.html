@@ -15,7 +15,7 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
-
+    <script src="{{url_for('static', filename='scripts/Function.js') }}" type="text/javascript"></script>
 </head>
 
 <body class="text-center" style="background-color:#fbe8a6">
@@ -35,8 +35,11 @@
 <div class="d-flex justify-content-center">
     <div class="col-sm-3" style="padding-top: 1%">
         <div class="card" style="padding-left: 20%;padding-right: 20%">
-            <form action="#" class="form-group" method="POST">
-                <h5 class="h5 mb-0 font-weight-normal">請輸入資訊以新增</h5>
+            <form action="{{url_for('ManagerAccount.manager_edit_account')}}" class="form-group" method="POST"
+            onsubmit="Ajax('GET', '/GET/Account', 'AjaxTable_ManagerAccount', $('#table'));">
+                <h5 class="h5 mb-0 font-weight-normal">請輸入資訊</h5>
+
+                <input type="hidden" name="method" value="PUT">
 
                 <label for="PersonnelNumberAdd"></label>
                 <input autofocus="" class="form-control" id="PersonnelNumberAdd" name="PersonnelNumberAdd"
@@ -44,14 +47,19 @@
 
                 <label for="PasswordAdd"></label>
                 <input class="form-control" id="PasswordAdd" name="PasswordAdd"
-                       placeholder="密碼"
-                       required type="text">
+                       placeholder="密碼，修改不用打" type="text">
+
+                <label for="PasswordEdit"></label>
+                <input class="form-control" id="PasswordEdit" name="PasswordEdit"
+                       placeholder="新密碼，修改必須" type="text">
 
                 <div style="padding-top: 5%">
 
                     <label>
-                        <input type="checkbox" name="isProfessor">
-                        教授帳號
+                        <select class="form-control" name="select_access">
+                            <option>學生帳號</option>
+                            <option>教授帳號</option>
+                        </select>
                     </label>
 
                     <label>
@@ -62,11 +70,10 @@
                     </label>
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        <h5 class="h5 mb-0 font-weight-normal">新增</h5>
+                        <h5 class="h5 mb-0 font-weight-normal">送出</h5>
                     </button>
                 </div>
             </form>
-
 
         </div>
     </div>
@@ -75,7 +82,10 @@
 <div class="d-flex justify-content-center">
     <div class="col-sm-10" style="padding-top: 1%">
         <div class="card" style="padding-left: 5%;padding-right: 5%">
-            <form action="#" class="form-group" method="POST">
+            <form action="{{url_for('ManagerAccount.manager_remove_account')}}" class="form-group" method="POST"
+            onsubmit="Ajax('GET', '/GET/Account', 'AjaxTable_ManagerAccount', $('#table'));">
+
+                <input type="hidden" name="method" value="DELETE">
 
                 <div style="padding: 1% 30%;">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
@@ -88,7 +98,6 @@
                     <tr>
                         <th scope="col">選取</th>
                         <th scope="col">編號</th>
-                        <th scope="col">密碼</th>
                     </tr>
                     </thead>
                 </table>
@@ -96,6 +105,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = Ajax('GET', '/GET/Account', 'AjaxTable_ManagerAccount', $('#table'));
+</script>
+
 </body>
 
 </html>

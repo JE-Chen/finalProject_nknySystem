@@ -33,36 +33,34 @@
       style="padding-top: 1%">
     <div class="col-sm-3">
         <div class="card" style="padding-left: 20%;padding-right: 20%">
-            <form action="#" class="form-sign-in" method="post">
-                <h5 class="h5 mb-0 font-weight-normal">請登入</h5>
-                <label for="PersonnelNumber"></label>
-                <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
-                       placeholder="請輸入編號" required="" type="number">
-                <label for="Password"></label>
-                <input class="form-control" id="Password" name="Password"
-                       placeholder="密碼"
-                       required="" type="password">
-                <label for="VerificationCode"></label>
-                <input class="form-control" id="VerificationCode"
-                       name="VerificationCode" placeholder="驗證碼"
-                       required="" type="text">
+            <h5 class="h5 mb-0 font-weight-normal">請登入</h5>
+            <label for="PersonnelNumber"></label>
+            <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
+                   placeholder="請輸入編號" required="" type="number">
+            <label for="Password"></label>
+            <input class="form-control" id="Password" name="Password"
+                   placeholder="密碼"
+                   required="" type="password">
+            <label for="VerificationCode"></label>
+            <input class="form-control" id="VerificationCode"
+                   name="VerificationCode" placeholder="驗證碼"
+                   required="" type="text">
 
-                <div style="padding-top: 5%;padding-bottom: 5%">
-                    <div class="VerificationImage" style="padding-bottom: 5%">
-                        <img alt="未載入驗證碼圖片" id="Verification_Code_Image">
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        <h5 class="h5 mb-0 font-weight-normal">登入</h5>
-                    </button>
+            <div style="padding-top: 5%;padding-bottom: 5%">
+                <div class="VerificationImage" style="padding-bottom: 5%">
+                    <img alt="未載入驗證碼圖片" id="Verification_Code_Image">
                 </div>
-            </form>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <h5 class="h5 mb-0 font-weight-normal">登入</h5>
+                </button>
+            </div>
         </div>
     </div>
 </form>
 
 
 <script>
-    window.onload = Ajax('GET', '/GET/LoginVerificationCode','AjaxCode' ,Image_Base64, $("#Verification_Code_Image"));
+    window.onload = Ajax('GET', '/GET/LoginVerificationCode', 'AjaxCode', $("#Verification_Code_Image"), Image_Base64);
 </script>
 
 </body>

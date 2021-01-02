@@ -158,9 +158,9 @@ SQL.select_form()
 
 SQL.select_where('Password', 'test_password')
 
-SQL.select_account('PersonnelNumber', 'Password', '410877027', 'test_password')
+Check = SQL.select_account('PersonnelNumber', 'Password', '410877027', Hash.hash_sha512('test'))
 
-SQL.update('password', 'password', 'test_password', 'new_password')
+# SQL.update('password', 'password', 'test_password', 'new_password')
 
 SQL.select_form()
 

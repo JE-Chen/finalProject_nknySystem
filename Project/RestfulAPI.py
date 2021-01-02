@@ -38,7 +38,7 @@ Hash = RestfulAPIResource.Hash
 app = Flask(__name__)
 
 app.secret_key = os.urandom(16)
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=3)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 app.config["SESSION_PERMANENT"] = False
 
 app.register_blueprint(ForgotPassword.ForgotPassword)

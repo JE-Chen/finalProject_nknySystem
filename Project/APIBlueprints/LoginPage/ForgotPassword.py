@@ -43,10 +43,3 @@ def forgot_password_gmail():
             return redirect(url_for('Verification.verification_page'))
     else:
         return redirect(url_for('ForgotPassword.forgot_password_page'))
-    '''
-    SQL.table_name = 'Account'
-    SQL.select_prefix = '*'
-    CheckAccount = SQL.select_account('PersonnelNumber', 'Password', '410877027', Hash.hash_sha512('test'))
-    print(CheckAccount)
-    return json.dumps([('410877001', 'Professor'), ('410877014', 'Normal'), ('410877027', 'Super')])
-    '''

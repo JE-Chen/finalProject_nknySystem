@@ -30,31 +30,37 @@
     </div>
 </nav>
 
-<div class="d-flex justify-content-center" >
-    <div class="col-sm-10" style="padding-top: 1%" id="table_div">
-        <div class="card">
-            <table class="table table-sm table-hover" id="table">
-                <thead>
-                <tr>
-                    <th scope="col">選取</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">
-                        <input id="checkbox1" type="checkbox">
-                    </th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                </tbody>
-            </table>
+<div class="d-flex justify-content-center">
+    <div class="col-sm-10" style="padding-top: 1%">
+        <div class="card" style="padding-left: 5%;padding-right: 5%">
+            <form action="#" class="form-group" method="POST">
+
+                <div style="padding: 1% 30%;">
+                    <label for="ProfessorName"></label>
+                    <input class="form-control" id="ProfessorName" name="ProfessorName"
+                           placeholder="教授名稱"
+                           required type="text">
+                </div>
+
+                <div style="padding-bottom: 1%;padding-right: 30%;padding-left: 30%">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <h5 class="h5 mb-0 font-weight-normal">檢查授課成績</h5>
+                    </button>
+                </div>
+
+                <table class="table table-sm table-hover" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">選取</th>
+                        <th scope="col">編號</th>
+                        <th scope="col">密碼</th>
+                    </tr>
+                    </thead>
+                </table>
+            </form>
         </div>
     </div>
 </div>
+
 </body>
 </html>
