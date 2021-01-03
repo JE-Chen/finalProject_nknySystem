@@ -113,6 +113,26 @@ function Ajax(method, url, eventCode, component, event) {
                             )
                         }
                         break
+
+                    case 'AjaxTable_StudentGrade':
+                        console.log(request.responseText);
+                        let StudentGradeTableText = request.responseText
+                        let StudentGradeJsonText = JSON.parse(StudentGradeTableText)
+                        for (let i = 0; i < StudentGradeJsonText.length; i++) {
+                            let StudentLessonList = StudentGradeJsonText[i]
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td>' + StudentLessonList[0] + '</td>' +
+                                '<td>' + StudentLessonList[1] + '</td>' +
+                                '<td>' + StudentLessonList[2] + '</td>' +
+                                '<td>' + StudentLessonList[3] + '</td>' +
+                                '<td>' + StudentLessonList[4] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
                 }
             }
         }
