@@ -39,16 +39,24 @@
 
                 <div style="padding-top: 5% ;padding-right: 15%;padding-left: 15%">
 
-                    <label for="PersonnelNumber"></label>
-                    <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
-                           placeholder="請輸入學生編號" required="" type="text">
-
                     <label for="LessonCode"></label>
                     <input autofocus="" class="form-control" id="LessonCode" name="LessonCode"
                            placeholder="請輸入課程代碼" required="" type="text">
 
-                    <label for="LessonGrade"></label>
-                    <input autofocus="" class="form-control" id="LessonGrade" name="LessonGrade"
+                    <label for="PersonnelNumber"></label>
+                    <input autofocus="" class="form-control" id="PersonnelNumber" name="PersonnelNumber"
+                           placeholder="請輸入學生編號" required="" type="text">
+
+                    <label for="Grade"></label>
+                    <input autofocus="" class="form-control" id="Grade" name="Grade"
+                           placeholder="請輸入課程成績" required="" type="text">
+
+                    <label for="Semester"></label>
+                    <input autofocus="" class="form-control" id="Semester" name="Semester"
+                           placeholder="請輸入課程成績" required="" type="text">
+
+                    <label for="LessonProfessor"></label>
+                    <input autofocus="" class="form-control" id="LessonProfessor" name="LessonProfessor"
                            placeholder="請輸入課程成績" required="" type="text">
 
                 </div>
@@ -72,42 +80,19 @@
             </form>
         </div>
     </div>
-
-    <div class="col-sm-3" style="padding-top: 1%">
-            <div class="card" style="padding-left: 5%;padding-right: 5%">
-                <form action="#" class="form-group" method="POST">
-
-                    <div style="padding-top: 5% ;padding-right: 15%;padding-left: 15%">
-
-                        <label for="PersonnelNumberSearch"></label>
-                        <input autofocus="" class="form-control" id="PersonnelNumberSearch" name="PersonnelNumberSearch"
-                               placeholder="請輸入學生編號" required="" type="text">
-
-                    </div>
-
-                    <div style="padding: 2% 15%;">
-
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">
-                            <h5 class="h5 mb-0 font-weight-normal">查詢</h5>
-                        </button>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-
 </div>
 
 <div class="d-flex justify-content-center">
-    <div class="col-sm-5" style="padding-top: 1%">
+    <div class="col-sm-10" style="padding-top: 1%">
         <div class="card" style="padding-left: 5%;padding-right: 5%">
             <table class="table table-sm table-hover" id="table">
                 <thead>
                 <tr>
-                    <th scope="col">學生編號</th>
                     <th scope="col">課程代碼</th>
-                    <th scope="col">課程名稱</th>
+                    <th scope="col">學生編號</th>
                     <th scope="col">課程成績</th>
+                    <th scope="col">學期</th>
+                    <th scope="col">課程教授</th>
                 </tr>
                 </thead>
             </table>

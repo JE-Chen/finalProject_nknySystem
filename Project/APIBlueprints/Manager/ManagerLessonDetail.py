@@ -6,6 +6,7 @@ from flask_cors import cross_origin
 from Project.Resource import RestfulAPIResource
 
 Hash = RestfulAPIResource.Hash
+SQL = RestfulAPIResource.SQL
 ManagerLessonDetail = Blueprint('ManagerLessonDetail', __name__)
 
 
