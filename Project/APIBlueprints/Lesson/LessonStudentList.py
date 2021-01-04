@@ -1,6 +1,6 @@
 import json
 
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, session, redirect, url_for, request
 from flask_cors import cross_origin
 
 from Project.Resource import RestfulAPIResource
@@ -21,12 +21,14 @@ def lesson_student_list_page():
 @LessonStudentList.route(r'/GET/LessonStudentListContent', methods=['GET', ])
 @cross_origin()
 def student_list():
-    SQL.table_name = 'SemesterLesson'
+    SQL.table_name = 'LessonGrade'
     SQL.select_prefix = '*'
+    LessonCode = request.args.get('LessonCode')
     Semester = request.args.get('Semester')
-    if Semester is None:
+    if Semester is None or LessonCode is None:
         Semester = '109'
-    LessonContents = SQL.select_where('Semester', Semester)
+        LessonCode = 'A001'
+    LessonContents = SQL.select_where_and('Semester', 'LessonCode', Semester, LessonCode)
     print(LessonContents)
     session['LessonContents'] = LessonContents
     return render_template('/Lesson/LessonStudentList.html')

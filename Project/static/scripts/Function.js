@@ -165,6 +165,20 @@ function Ajax(method, url, eventCode, component, event) {
                             )
                         }
                         break
+                    case 'LessonStudentList':
+                        let LessonStudentListTableText = request.responseText
+                        let LessonStudentListJsonText = JSON.parse(LessonStudentListTableText)
+                        for (let i = 0; i < LessonStudentListJsonText.length; i++) {
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td>' + LessonStudentListJsonText[i][0] + '</td>' +
+                                '<td>' + LessonStudentListJsonText[i][1] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
                 }
             }
         }
