@@ -34,10 +34,10 @@
 <div class="d-flex justify-content-center">
     <div class="col-sm-10" style="padding-top: 1%">
         <div class="card" style="padding-left: 5%;padding-right: 5%">
-            <form action="{{url_for('LessonList.manager_lesson_list')}}"
+            <form action="{{url_for('LessonList.lesson_list')}}"
                   class="form-group"
                   method="GET"
-                  onsubmit="Ajax('GET', '/GET/LessonListContent');">
+                  onsubmit="Ajax('GET', '/GET/LessonListContent/AJAX', 'AjaxTable_LessonList', $('#table'));">
 
                 <div style="padding: 1% 30%;">
 
@@ -67,7 +67,7 @@
 </div>
 
 <script>
-    window.onload = Ajax('GET', '/GET/LessonListContent/AJAX', 'AjaxSelect_LessonList', $('#table'));
+    window.onload = Ajax('GET', '/GET/LessonListContent/AJAX', 'AjaxTable_LessonList', $('#table'));
 </script>
 
 </body>

@@ -51,13 +51,14 @@ def login_check():
             session['verification_image'] = None
             if len(CheckAccount) == 1:
                 SQL.select_prefix = 'PersonnelAccess.Access'
-                Access = SQL.inner_join_where('PersonnelAccess',
-                                              request.args.get('PersonnelNumber'),
-                                              'PersonnelAccess.PersonnelNumber',
-                                              'Account.PersonnelNumber',
-                                              request.args.get('PersonnelNumber'))
+                Access = SQL.inner_join_where_distinct('PersonnelAccess',
+                                                       request.args.get('PersonnelNumber'),
+                                                       'PersonnelAccess.PersonnelNumber',
+                                                       'Account.PersonnelNumber',
+                                                       request.args.get('PersonnelNumber'))
                 LogSystem.warning(Access)
                 session['Login'] = 'Login'
+                session['PersonnelNumber'] = PersonnelNumber
                 if Access[0] == Hash.hash_sha512('Normal'):
                     session['Access'] = Hash.hash_sha512('Normal')
                     LogSystem.warning('Login Normal')

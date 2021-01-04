@@ -9,12 +9,14 @@
     <script crossorigin="anonymous"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script crossorigin="anonymous"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet">
+        <script src="{{url_for('static', filename='scripts/Function.js') }}" type="text/javascript"></script>
+        <script src="{{url_for('static', filename='scripts/printPage.js') }}" type="text/javascript"></script>
 </head>
 
 
@@ -33,21 +35,37 @@
 </nav>
 
 <div class="d-flex justify-content-center">
-    <div class="col-sm-3" style="padding-top: 1%">
-        <div class="card" style="padding-left: 20%;padding-right: 20%">
-            <form action="#" class="form-group" method="POST">
-                <h5 class="h5 mb-0 font-weight-normal">請列印</h5>
+    <div class="col-sm-10" style="padding-top: 1%">
+        <div class="card" style="padding-left: 5%;padding-right: 5%">
+            <form action="javascript:printPage()" class="form-group"
+                  method="POST">
 
-                <div style="padding-top: 5%">
-
+                <div style="padding: 1% 30%;">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        <h5 class="h5 mb-0 font-weight-normal"></h5>
+                        <h5 class="h5 mb-0 font-weight-normal">列印</h5>
                     </button>
                 </div>
+
+                <table class="table table-sm table-hover" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">選取</th>
+                        <th scope="col">課程代碼</th>
+                        <th scope="col">編號</th>
+                        <th scope="col">成績</th>
+                        <th scope="col">課程</th>
+                        <th scope="col">教授</th>
+                    </tr>
+                    </thead>
+                </table>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = Ajax('GET', '/GET/StudentGradeList/PersonnelNumber', 'AjaxTable_StudentPrintGrade', $('#table'));
+</script>
 
 </body>
 </html>

@@ -75,7 +75,6 @@ function Ajax(method, url, eventCode, component, event) {
                         break
 
                     case 'AjaxTable_LessonList':
-                        console.log(request.responseText);
                         let LessonListTableText = request.responseText
                         let LessonListJsonText = JSON.parse(LessonListTableText)
                         for (let i = 0; i < LessonListJsonText.length; i++) {
@@ -94,7 +93,6 @@ function Ajax(method, url, eventCode, component, event) {
                         break
 
                     case 'AjaxTable_StudentLessonList':
-                        console.log(request.responseText);
                         let StudentLessonListTableText = request.responseText
                         let StudentLessonListJsonText = JSON.parse(StudentLessonListTableText)
                         for (let i = 0; i < StudentLessonListJsonText.length; i++) {
@@ -115,7 +113,6 @@ function Ajax(method, url, eventCode, component, event) {
                         break
 
                     case 'AjaxTable_StudentGrade':
-                        console.log(request.responseText);
                         let StudentGradeTableText = request.responseText
                         let StudentGradeJsonText = JSON.parse(StudentGradeTableText)
                         for (let i = 0; i < StudentGradeJsonText.length; i++) {
@@ -128,6 +125,41 @@ function Ajax(method, url, eventCode, component, event) {
                                 '<td>' + StudentLessonList[2] + '</td>' +
                                 '<td>' + StudentLessonList[3] + '</td>' +
                                 '<td>' + StudentLessonList[4] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
+                    case 'AjaxTable_StudentPrintGrade':
+                        let StudentPrintGradeTableText = request.responseText
+                        let StudentPrintGradeJsonText = JSON.parse(StudentPrintGradeTableText)
+                        for (let i = 0; i < StudentPrintGradeJsonText.length; i++) {
+                            let StudentPrintGrade = StudentPrintGradeJsonText[i]
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td>' + StudentPrintGrade[0] + '</td>' +
+                                '<td>' + StudentPrintGrade[1] + '</td>' +
+                                '<td>' + StudentPrintGrade[2] + '</td>' +
+                                '<td>' + StudentPrintGrade[3] + '</td>' +
+                                '<td>' + StudentPrintGrade[4] + '</td>' +
+                                '</tr>' +
+                                '</tbody>'
+                            )
+                        }
+                        break
+                    case 'AjaxTable_ProfessorGrade':
+                        let ProfessorGradeTableText = request.responseText
+                        let ProfessorGradeJsonText = JSON.parse(ProfessorGradeTableText)
+                        for (let i = 0; i < ProfessorGradeJsonText.length; i++) {
+                            $(component).append(
+                                '<tbody>' +
+                                '<tr>' +
+                                '<td>' + ProfessorGradeJsonText[i][0] + '</td>' +
+                                '<td>' + ProfessorGradeJsonText[i][1] + '</td>' +
+                                '<td>' + ProfessorGradeJsonText[i][2] + '</td>' +
+                                '<td>' + ProfessorGradeJsonText[i][3] + '</td>' +
+                                '<td>' + ProfessorGradeJsonText[i][4] + '</td>' +
                                 '</tr>' +
                                 '</tbody>'
                             )

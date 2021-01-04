@@ -20,7 +20,7 @@ def lesson_list_page():
 
 @LessonList.route(r'/GET/LessonListContent', methods=['GET', ])
 @cross_origin()
-def manager_lesson_list():
+def lesson_list():
     SQL.table_name = 'LessonContent'
     SQL.select_prefix = '*'
     Semester = request.args.get('Semester')
@@ -28,11 +28,15 @@ def manager_lesson_list():
         Semester = '109'
     LessonContents = SQL.select_where('Semester', Semester)
     print(LessonContents)
-    Lesson = json.dumps(LessonContents)
-    return redirect(url_for('LessonList.lesson_list_page'))
+    session['LessonContents'] = LessonContents
+    return render_template('/Lesson/LessonList.html')
 
 
 @LessonList.route(r'/GET/LessonListContent/AJAX', methods=['GET', ])
 @cross_origin()
-def manager_get_lesson_list():
-    return Lesson
+def get_lesson_list():
+    data = session.get('LessonContents')
+    if data is None:
+        return redirect(url_for('LessonList.lesson_list_page'))
+    else:
+        return json.dumps(data)
